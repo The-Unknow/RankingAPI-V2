@@ -32,7 +32,9 @@ async def read_items(key: str, username: str):
      group = await client.get_group(15328728)
      user_name = await group.get_member_by_username(username)
      membertorank = user_name.id
-     await membertorank.promote()
+     current_rank = client.get_role_in_group(group, user_name)
+     new_rank = current_rank + 1
+     await client.set_rank(membertorank, new_rank)
      return ("The user was promoted!")
     else:
         return "Incorrect key"
