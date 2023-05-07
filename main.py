@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 import os
-import requests
 from roblox import Client
 from dotenv import load_dotenv
 import asyncio
