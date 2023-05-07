@@ -17,9 +17,14 @@ client = Client(RobloxCookie)
 
 app = FastAPI()
 
-group = await client.get_group(15328728)
-await group.update_shout("test!")
-
+@app.get("/group/shout/")
+async def read_items(key: str):
+    if key == APIKEY:
+     group = await client.get_group(15328728)
+     await group.update_shout("test!")
+     return ("Successfully Shouted!")
+    else:
+        return "Incorrect key"
 
 @app.get("/group/promote/")
 async def read_items(user_name: str, key: str,groupid: int):
