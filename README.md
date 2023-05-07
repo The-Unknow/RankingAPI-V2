@@ -1,1 +1,1 @@
-⁷# RankingAPI V2
+# RankingAPI V2
