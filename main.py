@@ -5,6 +5,10 @@ from dotenv import load_dotenv
 import asyncio
 load_dotenv()
 
+from roblox.utilities.exceptions import InternalServerError
+from roblox import InternalServerError
+
+
 RobloxCookie = os.getenv("COOKIE")
 APIKEY = os.getenv("API_KEY")
 
