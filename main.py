@@ -11,7 +11,6 @@ from roblox import InternalServerError
 
 RobloxCookie = os.getenv("COOKIE")
 APIKEY = os.getenv("API_KEY")
-groupid = os.getenv("groupId")
 
 
 client = Client(RobloxCookie)
@@ -21,7 +20,7 @@ app = FastAPI()
 @app.get("/group/shout/")
 async def read_items(key: str, message: str):
     if key == APIKEY:
-     group = await client.get_group(groupid)
+     group = await client.get_group(15328728)
      await group.update_shout(message)
      return ("Successfully Shouted!")
     else:
@@ -30,7 +29,7 @@ async def read_items(key: str, message: str):
 @app.get("/group/promote/")
 async def read_items(key: str, username: str):
     if key == APIKEY:
-     group = await client.get_group(groupid)
+     group = await client.get_group(15328728)
      usernameinsystem = await client.get_users_by_username(username)
      user_id = usernameinsystem.id
      membertorank =  await group.get_member_by_id(user_id)
