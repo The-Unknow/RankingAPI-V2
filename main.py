@@ -30,9 +30,8 @@ async def read_items(key: str, message: str):
 async def read_items(key: str, username: str):
     if key == APIKEY:
      group = await client.get_group(15328728)
-     user_name = await client.get_user_by_username(username)
-     user_id = user_name.id
-     membertorank =  await group.get_member_by_id(user_id)
+     user_name = await group.get_member_by_username(username)
+     membertorank = user_name.id
      await membertorank.promote()
      return ("The user was promoted!")
     else:
