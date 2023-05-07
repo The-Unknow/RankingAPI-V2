@@ -17,6 +17,9 @@ client = Client(RobloxCookie)
 
 app = FastAPI()
 
+group = await client.get_group(15328728)
+await group.update_shout("test!")
+
 
 @app.get("/group/promote/")
 async def read_items(user_name: str, key: str,groupid: int):
